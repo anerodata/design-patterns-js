@@ -1,4 +1,4 @@
-import ValidatorService from './patterns/responsability-chain.js'
+import ValidatorService from './patterns/responsability-chain/ValidatorService.js'
 import './styles/main.scss'
 
 function validateForm () {
