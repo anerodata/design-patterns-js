@@ -43,6 +43,7 @@ class ValidatorChainBuilder {
   }
 
   add (validator) {
+    console.log('Adding to the validation chain', validator)
     if (!this.first) {
       this.first = validator
       this.last = validator
