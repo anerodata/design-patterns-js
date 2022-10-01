@@ -13,7 +13,7 @@ function validateForm () {
           userEmail: document.querySelector('#email').value
         }
       }
-      console.log(validatorService.perfomValidation(formData))
+      console.log('validatorService.perfomValidation value is:', validatorService.perfomValidation(formData))
     })
 }
 validateForm()
