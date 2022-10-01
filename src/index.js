@@ -1,7 +1,7 @@
 import ValidatorService from './patterns/responsability-chain.js'
 import './styles/main.scss'
 
-function app () {
+function validateForm () {
   document.querySelector('#chain-of-responsability-input')
     .addEventListener('click', (e) => {
       e.preventDefault()
@@ -16,4 +16,4 @@ function app () {
       validatorService.perfomValidation(formData)
     })
 }
-app()
+validateForm()
