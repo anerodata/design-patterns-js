@@ -69,13 +69,4 @@ class ValidatorService {
     return this.validators[step].isValid(wizardData)
   }
 }
-const wizardData = {
-  currentStep: 'ACCOUNT_INFO',
-  accountInfo: {
-    userName: 'fdsaf',
-    userEmail: ''
-  }
-}
-
-const validatorService = new ValidatorService()
-validatorService.perfomValidation(wizardData)
+export default ValidatorService

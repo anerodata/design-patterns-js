@@ -1,12 +1,19 @@
-import responsability from './patterns/responsability-chain.js'
+import ValidatorService from './patterns/responsability-chain.js'
 import './styles/main.scss'
 
 function app () {
   document.querySelector('#chain-of-responsability-input')
     .addEventListener('click', (e) => {
       e.preventDefault()
+      const formData = {
+        currentStep: 'ACCOUNT_INFO',
+        accountInfo: {
+          userName: document.querySelector('#name').value,
+          userEmail: document.querySelector('#email').value
+        }
+      }
+      const validatorService = new ValidatorService()
+      validatorService.perfomValidation(formData)
     })
 }
 app()
-console.log(app)
-console.log(responsability)
