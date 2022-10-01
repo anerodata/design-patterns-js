@@ -13,7 +13,7 @@ function validateForm () {
         }
       }
       const validatorService = new ValidatorService()
-      validatorService.perfomValidation(formData)
+      console.log(validatorService.perfomValidation(formData))
     })
 }
 validateForm()

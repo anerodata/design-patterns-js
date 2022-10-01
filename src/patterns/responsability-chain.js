@@ -1,12 +1,14 @@
 class Validator {
   isValid (model) {
-    if (this.nextValidator !== null) {
+    console.log(this.nextValidator)
+    if (this.nextValidator !== undefined) {
       return this.nextValidator.isValid(model)
     }
     return true
   }
 
   setNextValidator (validator) {
+    console.log(validator)
     this.nextValidator = validator
   }
 }
@@ -24,12 +26,12 @@ class UserNameValidator extends Validator {
 class UserEmailValidator extends Validator {
   getUserEmail = model => model.accountInfo.userEmail
   isValid (model) {
-    console.log(model)
     const userEmail = this.getUserEmail(model).trim()
     if (userEmail === '') {
       console.log('Error: Escribe un correo')
       return false
     }
+    console.log(model)
     return super.isValid(model)
   }
 }
@@ -43,8 +45,8 @@ class ValidatorChainBuilder {
     if (!this.first) {
       this.first = validator
       this.last = validator
-      console.log(this)
     }
+    console.log(validator)
     this.last.setNextValidator(validator)
     this.last = validator
     return this
