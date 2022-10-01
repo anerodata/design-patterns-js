@@ -2,6 +2,7 @@ import ValidatorService from './patterns/responsability-chain.js'
 import './styles/main.scss'
 
 function validateForm () {
+  const validatorService = new ValidatorService()
   document.querySelector('#chain-of-responsability-input')
     .addEventListener('click', (e) => {
       e.preventDefault()
@@ -12,7 +13,6 @@ function validateForm () {
           userEmail: document.querySelector('#email').value
         }
       }
-      const validatorService = new ValidatorService()
       console.log(validatorService.perfomValidation(formData))
     })
 }
