@@ -1,4 +1,5 @@
 import ValidatorService from './patterns/responsability-chain/ValidatorService.js'
+import Cart from './patterns/singleton/Cart.js'
 import './styles/main.scss'
 
 function validateForm () {
@@ -16,4 +17,21 @@ function validateForm () {
       console.log('validatorService.perfomValidation value is:', validatorService.perfomValidation(formData))
     })
 }
+function initCart () {
+  const cart = new Cart()
+  const hoodiesInput = document.querySelector('#cart-hoodies-result')
+  document.querySelector('#cart-add-hoodie')
+    .addEventListener('click', (e) => {
+      e.preventDefault()
+      hoodiesInput.value = cart.incrementHoodies()
+    })
+  document.querySelector('#cart-remove-hoodie')
+    .addEventListener('click', (e) => {
+      e.preventDefault()
+      if (hoodiesInput.value > 0) {
+        hoodiesInput.value = cart.decrementHoodies()
+      }
+    })
+}
 validateForm()
+initCart()
