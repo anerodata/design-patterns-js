@@ -1,11 +1,11 @@
 let instance
-let hoodies = 0
 class Cart {
   constructor () {
-    if (instance) {
-      throw new Error('A singleton cart is only created once')
+    if (!instance) {
+      this.hoodies = 0
+      instance = this
     }
-    instance = this
+    return instance
   }
 
   getInstance () {
@@ -13,11 +13,11 @@ class Cart {
   }
 
   incrementHoodies () {
-    return ++hoodies
+    return ++this.hoodies
   }
 
   decrementHoodies () {
-    return --hoodies
+    return --this.hoodies
   }
 }
 Object.freeze(Cart)
