@@ -8,10 +8,6 @@ class Cart {
     return instance
   }
 
-  getInstance () {
-    return this
-  }
-
   incrementHoodies () {
     return ++this.hoodies
   }
