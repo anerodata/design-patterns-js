@@ -1,7 +1,7 @@
 let instance
 class Cart {
   constructor () {
-    if (!instance) {
+    if (instance === undefined) {
       this.hoodies = 0
       instance = this
     }
