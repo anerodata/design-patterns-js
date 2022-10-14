@@ -14,7 +14,7 @@ function initConstructor () {
     })
 }
 
-function initCart () {
+function initSingleton () {
   const cart = new Cart()
   const hoodiesInput = document.querySelector('#cart-hoodies-result')
   document.querySelector('#cart-add-hoodie')
@@ -31,7 +31,7 @@ function initCart () {
     })
 }
 
-function validateForm () {
+function initChainOfResponsability () {
   const validatorService = new ValidatorService()
   document.querySelector('#chain-of-responsability-input')
     .addEventListener('click', (e) => {
@@ -47,5 +47,5 @@ function validateForm () {
     })
 }
 initConstructor()
-initCart()
-validateForm()
+initSingleton()
+initChainOfResponsability()
