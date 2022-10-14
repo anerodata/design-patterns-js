@@ -1,6 +1,18 @@
+import Fruit from './patterns/constructor/Fruit.js'
 import ValidatorService from './patterns/responsability-chain/ValidatorService.js'
 import Cart from './patterns/singleton/Cart.js'
 import './styles/main.scss'
+
+function initConstructor () {
+  document.querySelector('#constructor-create-fruit')
+    .addEventListener('click', (e) => {
+      e.preventDefault()
+      const typeEl = document.querySelector('#constructor-type-fruit')
+      const originEl = document.querySelector('#constructor-origin-fruit')
+      const fruit = new Fruit(typeEl.value, originEl.value)
+      console.log(fruit, fruit.description())
+    })
+}
 
 function validateForm () {
   const validatorService = new ValidatorService()
@@ -35,3 +47,4 @@ function initCart () {
 }
 validateForm()
 initCart()
+initConstructor()
