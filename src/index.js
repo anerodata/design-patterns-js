@@ -1,6 +1,8 @@
 import Fruit from './patterns/constructor/Fruit.js'
 import Cart from './patterns/singleton/Cart.js'
 import ValidatorService from './patterns/responsability-chain/ValidatorService.js'
+import ConcreteSubject from './patterns/observer/ConcreteSubject.js'
+import ConcreteObserver from './patterns/observer/ConcreteObserver.js'
 import './styles/main.scss'
 
 function initConstructor () {
@@ -31,6 +33,32 @@ function initSingleton () {
     })
 }
 
+function initObserver () {
+  // References to our DOM elements
+  const addBtn = document.getElementById('addNewObserver')
+  const container = document.getElementById('observersContainer')
+  const controlCheckbox = new ConcreteSubject(
+    document.getElementById('mainCheckbox')
+  )
+
+  const addNewObserver = (e) => {
+    e.preventDefault()
+    // Create a new checkbox to be added
+    const check = document.createElement('input')
+    check.type = 'checkbox'
+    const checkObserver = new ConcreteObserver(check)
+
+    // Add the new observer to our list of observers
+    // for our main subject
+    controlCheckbox.addObserver(checkObserver)
+
+    // Append the item to the container
+    container.appendChild(check)
+  }
+
+  addBtn.onclick = addNewObserver
+}
+
 function initChainOfResponsability () {
   const validatorService = new ValidatorService()
   document.querySelector('#chain-of-responsability-input')
@@ -49,3 +77,4 @@ function initChainOfResponsability () {
 initConstructor()
 initSingleton()
 initChainOfResponsability()
+initObserver()
